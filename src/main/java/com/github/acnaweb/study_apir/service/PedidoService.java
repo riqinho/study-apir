@@ -34,7 +34,9 @@ public class PedidoService {
                         Item item = new Item();                                                                         
                         Produto produto = produtoRepository
                             .findById(i.getProduto_id())                            
-                            .orElseThrow();
+                            .orElseThrow(() -> 
+                                new RuntimeException(
+                                    "Produto inexistente: " + i.getProduto_id()));
 
                         item.setProduto(produto);
                         item.setValor(i.getValor());

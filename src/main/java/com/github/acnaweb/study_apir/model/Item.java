@@ -71,8 +71,5 @@ public class Item {
 
     public void setQuantidade(BigDecimal quantidade) {
         this.quantidade = quantidade;
-    }
-
-    
-
+    }  
 }
