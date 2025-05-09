@@ -1,6 +1,5 @@
 package com.github.acnaweb.study_apir.service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -9,18 +8,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.github.acnaweb.study_apir.dto.pedido.PedidoRequestCreate;
-import com.github.acnaweb.study_apir.dto.pedido.PedidoRequestUpdate;
 import com.github.acnaweb.study_apir.model.Item;
 import com.github.acnaweb.study_apir.model.Pedido;
 import com.github.acnaweb.study_apir.model.Produto;
-import com.github.acnaweb.study_apir.repository.ItemRepository;
 import com.github.acnaweb.study_apir.repository.PedidoRepository;
 import com.github.acnaweb.study_apir.repository.ProdutoRepository;
 
 @Service
 public class PedidoService {
-    @Autowired
-    private ItemRepository itemRepository;
+
     @Autowired
     private PedidoRepository pedidoRepository;
     @Autowired
@@ -57,11 +53,15 @@ public class PedidoService {
     //         .map(p -> pedidoRepository.save(p));
 
     // }
-    // public Optional<Pedido> getById(Long id) {
-    //     return pedidoRepository.findById(id);
-    // }
+    public Optional<Pedido> findById(Long id) {
+        return pedidoRepository.findById(id);
+    }
 
-    // public List<Pedido> getAll() {
-    //     return pedidoRepository.findAll();
-    // }    
+    public List<Pedido> findAll() {
+        return pedidoRepository.findAll();
+    }
+
+    public List<Pedido> findByStatus(String status) {
+        return pedidoRepository.findByStatus(status);        
+    }    
 }

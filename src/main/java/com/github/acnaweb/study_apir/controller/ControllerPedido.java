@@ -1,6 +1,7 @@
 package com.github.acnaweb.study_apir.controller;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.github.acnaweb.study_apir.dto.pedido.PedidoRequestCreate;
 import com.github.acnaweb.study_apir.dto.pedido.PedidoResponse;
-import com.github.acnaweb.study_apir.model.Pedido;
 import com.github.acnaweb.study_apir.service.PedidoService;
 
 @RestController
@@ -33,11 +33,22 @@ public class ControllerPedido {
 
     @GetMapping("{id}")
     public ResponseEntity<PedidoResponse> findById(@PathVariable Long id){
-	    return ResponseEntity.noContent().build();
+        return pedidoService.findById(id)
+            .map(pedido -> ResponseEntity.ok(new PedidoResponse().toDto(pedido)))
+            .orElse(ResponseEntity.notFound().build());
     }
 
     @GetMapping()
     public ResponseEntity<List<PedidoResponse>> listAll(){
-	    return ResponseEntity.noContent().build();
+	    return ResponseEntity.ok(pedidoService.findAll().stream()
+            .map(pedido -> new PedidoResponse().toDto(pedido))
+            .collect(Collectors.toList()));
+    }
+
+    @GetMapping("status/{status}")
+    public ResponseEntity<List<PedidoResponse>> findByStatus(@PathVariable String status){
+	    return ResponseEntity.ok(pedidoService.findByStatus(status).stream()
+            .map(pedido -> new PedidoResponse().toDto(pedido))
+            .collect(Collectors.toList()));
     }
 }
