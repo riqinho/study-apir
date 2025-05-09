@@ -1,5 +1,6 @@
 package com.github.acnaweb.study_apir.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -20,25 +21,32 @@ import com.github.acnaweb.study_apir.repository.ProdutoRepository;
 public class PedidoService {
     @Autowired
     private ItemRepository itemRepository;
+    @Autowired
     private PedidoRepository pedidoRepository;
+    @Autowired
     private ProdutoRepository produtoRepository;
 
-    // public Pedido create(PedidoRequestCreate dto) {
+    public Pedido create(PedidoRequestCreate dto) {
+        Pedido pedido  = new Pedido();          
+        pedido.setStatus("ABERTO");
+        List<Item> items = dto.getItems().stream()
+                    .map(i -> {
+                        Item item = new Item();                                                                         
+                        Produto produto = produtoRepository
+                            .findById(i.getProduto_id())                            
+                            .orElseThrow();
 
-    //     Pedido pedido = dto.toModel();
-
-    //     List<Item> items = dto.getItems().stream()
-    //         .map(i -> {
-    //              Produto produto = produtoRepository.findById(i.getProdutoId())
-    //                  .orElseThrow(() -> new RuntimeException("Produtonão encontrado"));
-    //             return i.toModel(pedido, produto);                
-    //         })
-    //         .collect(Collectors.toList());
-
-    //     pedido.setItems(items);
-
-    //     return pedidoRepository.save(pedido);
-    // }
+                        item.setProduto(produto);
+                        item.setValor(i.getValor());
+                        item.setQuantidade(i.getQuantidade());
+                        item.setPedido(pedido);                        
+                        return item;
+                    })
+                    .collect(Collectors.toList());
+        
+        pedido.setItems(items);
+        return pedidoRepository.save(pedido);
+    }
     // public boolean delete(Long id) {
     //     return false;
     // }
