@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.github.acnaweb.study_apir.dto.pedido.PedidoRequestCreate;
 import com.github.acnaweb.study_apir.dto.pedido.PedidoResponse;
+import com.github.acnaweb.study_apir.model.PedidoStatus;
 import com.github.acnaweb.study_apir.service.PedidoService;
 
 @RestController
@@ -45,8 +46,9 @@ public class ControllerPedido {
             .collect(Collectors.toList()));
     }
 
-    @GetMapping("status/{status}")
-    public ResponseEntity<List<PedidoResponse>> findByStatus(@PathVariable String status){
+    // Query Parameter /pedidos/query?status=CANCELADO
+    @GetMapping("query")
+    public ResponseEntity<List<PedidoResponse>> findByValue(PedidoStatus status){
 	    return ResponseEntity.ok(pedidoService.findByStatus(status).stream()
             .map(pedido -> new PedidoResponse().toDto(pedido))
             .collect(Collectors.toList()));

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.github.acnaweb.study_apir.dto.pedido.PedidoRequestCreate;
 import com.github.acnaweb.study_apir.model.Item;
 import com.github.acnaweb.study_apir.model.Pedido;
+import com.github.acnaweb.study_apir.model.PedidoStatus;
 import com.github.acnaweb.study_apir.model.Produto;
 import com.github.acnaweb.study_apir.repository.PedidoRepository;
 import com.github.acnaweb.study_apir.repository.ProdutoRepository;
@@ -24,7 +25,9 @@ public class PedidoService {
 
     public Pedido create(PedidoRequestCreate dto) {
         Pedido pedido  = new Pedido();          
-        pedido.setStatus("ABERTO");
+        pedido.setStatus(PedidoStatus.ABERTO);
+        pedido.setDataEntrega(dto.getDataEntrega());
+        pedido.setDataPedido(dto.getDataPedido());
         List<Item> items = dto.getItems().stream()
                     .map(i -> {
                         Item item = new Item();                                                                         
@@ -61,7 +64,7 @@ public class PedidoService {
         return pedidoRepository.findAll();
     }
 
-    public List<Pedido> findByStatus(String status) {
+    public List<Pedido> findByStatus(PedidoStatus status) {        
         return pedidoRepository.findByStatus(status);        
     }    
 }
