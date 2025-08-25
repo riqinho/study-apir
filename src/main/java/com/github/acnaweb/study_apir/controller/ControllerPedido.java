@@ -18,7 +18,7 @@ import com.github.acnaweb.study_apir.model.PedidoStatus;
 import com.github.acnaweb.study_apir.service.PedidoService;
 
 @RestController
-@RequestMapping("pedidos")
+@RequestMapping("/api/${api.version}/pedidos")
 public class ControllerPedido {
 
     @Autowired
