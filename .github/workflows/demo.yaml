@@ -14,6 +14,7 @@ jobs:
                 ls -la
     demo2:
         runs-on: ubuntu-latest
+        needs: demo1 
         steps:
             - name: etapa 1
               run: echo "estou na etapa 1" 
