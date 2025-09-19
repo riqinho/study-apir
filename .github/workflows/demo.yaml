@@ -19,3 +19,7 @@ jobs:
         steps:
             - name: etapa 1
               run: echo "estou na etapa 1" 
+            - name: clone do repo atual
+              uses: actions/checkout@v4
+            - name: listar pasta
+              run: ls -la
