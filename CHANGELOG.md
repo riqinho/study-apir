@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.1.0](https://github.com/riqinho/study-apir/compare/v1.0.0...v1.1.0) (2025-10-10)
+
+
+### Features
+
+* add pongx ([a047ebb](https://github.com/riqinho/study-apir/commit/a047ebbdd8315d0a64e2cfdfcbce33b8ff2cfadd))
+* update pongx2.1 ([eb5ab1f](https://github.com/riqinho/study-apir/commit/eb5ab1f829090b88a787991fef9ec238a003b9a4))
+
+
+### Bug Fixes
+
+* remove endpoint info ([beacacf](https://github.com/riqinho/study-apir/commit/beacacf18fb7de5da4f27c78b2e0b6df43fea772))
+
 ## 1.0.0 (2025-10-10)
 
 
