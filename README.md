@@ -1,6 +1,6 @@
 # Study APIR
 
-API Java para estudo de Spring Boot
+API Java para estudo de Spring Boot e Docker
 
 ## Criando .jar
 
