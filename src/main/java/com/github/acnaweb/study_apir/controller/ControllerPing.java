@@ -14,16 +14,11 @@ public class ControllerPing {
 
     @GetMapping
     public String ping() {
-        return "pongx";
+        return "pongx2";
     }
 
     @GetMapping("/version")
     public String version() {
-        return "Version : " + version;
-    }
-
-    @GetMapping("/info")
-    public String info() {
         return "Version : " + version;
     }
     
