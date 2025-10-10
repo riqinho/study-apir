@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.3.0](https://github.com/riqinho/study-apir/compare/v1.2.1...v1.3.0) (2025-10-10)
+
+
+### Features
+
+* setup ci ([8bf21dc](https://github.com/riqinho/study-apir/commit/8bf21dc617aedd577064b08d2c585d5a0a9df6ed))
+
+
+### Documentation
+
+* rename title ([4f190ae](https://github.com/riqinho/study-apir/commit/4f190ae5b811108388e0c2231816063c614718c3))
+
 ## [1.2.1](https://github.com/riqinho/study-apir/compare/v1.2.0...v1.2.1) (2025-10-10)
 
 
