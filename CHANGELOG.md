@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/riqinho/study-apir/compare/v1.1.0...v1.2.0) (2025-10-10)
+
+
+### Features
+
+* change return pong ([a6cfc8e](https://github.com/riqinho/study-apir/commit/a6cfc8e93a0eeadb2b8978bd772340db6f08a601))
+
 ## [1.1.0](https://github.com/riqinho/study-apir/compare/v1.0.0...v1.1.0) (2025-10-10)
 
 
