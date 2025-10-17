@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - feature/**
+      - realease
+      - hotfix
 
 jobs:
   build:
