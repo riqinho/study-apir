@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - feature/**
+      - realease
+      - hotfix
 
 jobs:
   build:
@@ -13,7 +15,10 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build da Aplicação
-        run: mvn clean package
+        run: mvn clean package -DskipTests
 
       - name: Execução de Testes Unitários
         run: mvn test
+
+      - name: Teste de criação de imagem
+        run: docker build -t study-apir .
