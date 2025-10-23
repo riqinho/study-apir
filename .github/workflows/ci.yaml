@@ -19,3 +19,6 @@ jobs:
 
       - name: Execução de Testes Unitários
         run: mvn test
+
+      - name: Teste de criação de imagem
+        run: docker build -t study-apir .
