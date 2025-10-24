@@ -18,7 +18,7 @@ services:
       - 9000:9000
     environment:
       - DB_SERVER=db
-      - DB_PORT=3309
+      - DB_PORT=3306
       - DB_DATABASE=api
       - DB_USER=root
       - DB_PASSWORD=root_pwd
